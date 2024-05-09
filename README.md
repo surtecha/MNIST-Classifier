@@ -1,4 +1,4 @@
-# KNN Classifier
+# MNIST Classifier
 
 <p align="center">
   <img width="251" height="248" src="https://user-images.githubusercontent.com/91011302/225112209-f08013fc-ee68-459e-b2ec-83895bfa7e47.png">
