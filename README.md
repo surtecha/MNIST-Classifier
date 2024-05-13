@@ -19,8 +19,6 @@ K-Nearest Neighbors is a simple and effective machine learning algorithm used fo
 
 ### Formula for Euclidean Distance:
 
-It seems like the LaTeX formatting for the formula didn't render properly. Let me correct that for you:
-
 The formula for Euclidean distance is calculated as:
 
 $d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$
@@ -35,16 +33,40 @@ This formula represents the calculation of the Euclidean distance, which is a cr
 
 Neural networks, particularly dense neural networks, have been widely used for classification tasks due to their ability to learn complex patterns in data. In this project, a dense neural network with two hidden layers is employed to classify handwritten digits.
 
-### Architecture:
+### Model Architecture:
 
-The neural network architecture consists of an input layer, two hidden layers, and an output layer. The input layer has neurons corresponding to the flattened 28x28 pixel input images. The two hidden layers utilize Rectified Linear Unit (ReLU) and Sigmoid activation functions, respectively, for introducing non-linearity into the model. The output layer has neurons representing the classes (digits 0-9) and employs softmax activation for multi-class classification.
+The neural network model consists of the following layers:
 
-### Training:
+1. **Input Layer:**
+   - Type: Flatten
+   - Input Shape: (28, 28)
+   - Description: This layer flattens the 28x28 pixel input images into a 1D array.
 
-The network is trained using backpropagation and gradient descent optimization techniques. During training, the weights of the network are adjusted iteratively to minimize the classification error using a specified loss function (e.g., categorical cross-entropy).
+2. **Hidden Layer:**
+   - Type: Dense
+   - Number of Neurons: 100
+   - Activation Function: ReLU (Rectified Linear Unit)
+   - Formula: $(f(x) = max(0, x))$
+   - Description: This layer applies the rectified linear activation function to introduce non-linearity to the model.
 
-### Performance:
+3. **Output Layer:**
+   - Type: Dense
+   - Number of Neurons: 10
+   - Activation Function: Sigmoid
+   - Formula: $`\sigma(x) = \frac{1}{1 + e^{-x}}`$
+   - Description: This layer applies the sigmoid activation function to produce class probabilities for the 10 possible digits (0-9).
 
-Through experimentation and optimization, the neural network model achieves an accuracy of 97% on the MNIST dataset. This accuracy represents the ability of the model to correctly classify handwritten digits.
+### Model Compilation
 
-These two approaches, kNN and dense neural networks, demonstrate different strategies for handwritten digit classification, each with its own strengths and limitations. Experimentation with various algorithms and architectures can further enhance the accuracy and robustness of the classifier.
+Before training the model, it needs to be compiled with the appropriate optimizer, loss function, and evaluation metrics.
+
+- **Optimizer:** Adam
+- **Loss Function:** Sparse Categorical Crossentropy
+- **Metrics:** Accuracy
+
+### Model Training
+
+To train the model, use the `fit` method with the training data.
+
+```python
+model.fit(X_train, y_train, epochs=10)
